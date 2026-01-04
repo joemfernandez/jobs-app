@@ -1,0 +1,23 @@
+{
+    "name": "sharepoint-job-board",
+    "version": "1.0.0",
+    "description": "Job board using jQuery DataTables, compatible with SharePoint 2016 and local development.",
+    "scripts": {
+        "start": "http-server ./src -p 8080",
+        "test": "jest",
+        "test:watch": "jest --watchAll",
+        "build": "node scripts/build.js && node scripts/update-cewp.js"
+    },
+    "devDependencies": {
+        "http-server": "14.1.1",
+        "jest": "29.7.0",
+        "jest-environment-jsdom": "29.7.0",
+        "jsdom": "24.0.0"
+    },
+    "jest": {
+        "testEnvironment": "jest-environment-jsdom",
+        "setupFilesAfterEnv": [
+            "<rootDir>/tests/test-setup.js"
+        ]
+    }
+}

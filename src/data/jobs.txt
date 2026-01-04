@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "notice_num": "JOB-001",
+    "announcement_date": "2025-01-01",
+    "closing_date": "2025-01-15",
+    "command_location": "HQ",
+    "grade": "GS-12",
+    "position": "Systems Analyst",
+    "details": "<h3>Systems Analyst</h3><p>Responsible for system analysis and design.</p>"
+  },
+  {
+    "id": 2,
+    "notice_num": "JOB-002",
+    "announcement_date": "2025-02-01",
+    "closing_date": "2025-02-20",
+    "command_location": "Field Office",
+    "grade": "GS-11",
+    "position": "Network Engineer",
+    "details": "<h3>Network Engineer</h3><p>Maintain and optimize network infrastructure.</p>"
+  }
+]

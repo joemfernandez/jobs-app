@@ -1,0 +1,28 @@
+<!-- deploy/cewp-template.html -->
+<link rel="stylesheet" href="/Style Library/JobBoard/jobs.v{{version}}.css" />
+
+<script src="/Style Library/jquery-3.7.0.min.js"></script>
+<script src="/Style Library/jquery.dataTables.min.js"></script>
+
+<script src="/Style Library/JobBoard/jobs-core.v{{version}}.js"></script>
+<script src="/Style Library/JobBoard/jobs-ui.v{{version}}.js"></script>
+<script src="/Style Library/JobBoard/jobs-sp.v{{version}}.js"></script>
+
+<div id="jobs-container">
+    <table id="jobs-table" class="display"></table>
+    <div id="jobs-details"></div>
+</div>
+
+<script>
+    JobsApp.DataService.getJobs("/Style Library/JobBoard/jobs.v{{version}}.txt")
+        .then(function (jobs) {
+            JobsApp.UI.init({
+                tableSelector: "#jobs-table",
+                jobs: jobs,
+                detailsContainerSelector: "#jobs-details"
+            });
+        })
+        .fail(function (err) {
+            console.error("Failed to load jobs:", err);
+        });
+</script>
