@@ -139,12 +139,10 @@ build/
    ```
 
 3. **Upload `/build/JobBoard` to SharePoint**
-
    - Drag and drop into:  
      `/Style Library/JobBoard/`
 
 4. **Open `build/JobBoard/cewp.html`**
-
    - Copy the contents
    - Paste into your CEWP (Content Editor Web Part) HTML source
 

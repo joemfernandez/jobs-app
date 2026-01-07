@@ -9,20 +9,20 @@
 <script src="/Style Library/JobBoard/jobs-sp.v{{version}}.js"></script>
 
 <div id="jobs-container">
-    <table id="jobs-table" class="display"></table>
-    <div id="jobs-details"></div>
+  <table id="jobs-table" class="display"></table>
+  <div id="jobs-details"></div>
 </div>
 
 <script>
-    JobsApp.DataService.getJobs("/Style Library/JobBoard/jobs.v{{version}}.txt")
-        .then(function (jobs) {
-            JobsApp.UI.init({
-                tableSelector: "#jobs-table",
-                jobs: jobs,
-                detailsContainerSelector: "#jobs-details"
-            });
-        })
-        .fail(function (err) {
-            console.error("Failed to load jobs:", err);
-        });
+  JobsApp.DataService.getJobs("/Style Library/JobBoard/jobs.v{{version}}.txt")
+    .then(function (jobs) {
+      JobsApp.UI.init({
+        tableSelector: "#jobs-table",
+        jobs: jobs,
+        detailsContainerSelector: "#jobs-details"
+      });
+    })
+    .fail(function (err) {
+      console.error("Failed to load jobs:", err);
+    });
 </script>

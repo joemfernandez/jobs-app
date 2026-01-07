@@ -15,8 +15,8 @@ const outputPath = path.join(__dirname, "..", "build", "JobBoard", "cewp.html");
 // Ensure build folder exists
 const buildDir = path.join(__dirname, "..", "build", "JobBoard");
 if (!fs.existsSync(buildDir)) {
-    console.error("Build folder missing. Run `npm run build` first.");
-    process.exit(1);
+  console.error("Build folder missing. Run `npm run build` first.");
+  process.exit(1);
 }
 
 // Load template

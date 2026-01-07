@@ -1,18 +1,18 @@
 /* src/css/jobs.css */
 
 #jobs-container {
-    margin: 20px;
+  margin: 20px;
 }
 
 #jobs-details {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: none;
-    background-color: #f9f9f9;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: none;
+  background-color: #f9f9f9;
 }
 
 #jobs-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }

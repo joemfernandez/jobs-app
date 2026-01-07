@@ -1,23 +1,22 @@
 <!-- src/index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Job Board Local Test</title>
 
     <!-- DataTables basic styling; replace with your theme if preferred -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
 
-    <link rel="stylesheet" href="./css/jobs.css">
-</head>
+    <link rel="stylesheet" href="./css/jobs.css" />
+  </head>
 
-<body>
+  <body>
     <div id="jobs-container">
-        <h1>Job Openings</h1>
-        <table id="jobs-table" class="display"></table>
+      <h1>Job Openings</h1>
+      <table id="jobs-table" class="display"></table>
 
-        <div id="jobs-details"></div>
+      <div id="jobs-details"></div>
     </div>
 
     <!-- jQuery and DataTables -->
@@ -30,27 +29,26 @@
     <script src="./sp/jobs-sp.js"></script>
 
     <script>
-        (function () {
-            "use strict";
+      (function () {
+        "use strict";
 
-            // Local URL to sample data
-            var dataUrl = "./data/jobs.txt";
+        // Local URL to sample data
+        var dataUrl = "./data/jobs.txt";
 
-            // Using DataService to load jobs, then initializing UI
-            JobsApp.DataService.getJobs(dataUrl)
-                .then(function (jobs) {
-                    JobsApp.UI.init({
-                        tableSelector: "#jobs-table",
-                        jobs: jobs,
-                        detailsContainerSelector: "#jobs-details"
-                    });
-                })
-                .fail(function (err) {
-                    console.error("Failed to load jobs:", err);
-                    alert("Failed to load jobs. See console for details.");
-                });
-        }());
+        // Using DataService to load jobs, then initializing UI
+        JobsApp.DataService.getJobs(dataUrl)
+          .then(function (jobs) {
+            JobsApp.UI.init({
+              tableSelector: "#jobs-table",
+              jobs: jobs,
+              detailsContainerSelector: "#jobs-details"
+            });
+          })
+          .fail(function (err) {
+            console.error("Failed to load jobs:", err);
+            alert("Failed to load jobs. See console for details.");
+          });
+      })();
     </script>
-</body>
-
+  </body>
 </html>
