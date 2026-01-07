@@ -149,3 +149,10 @@ build/
 5. **Publish the page**
 
 SharePoint will load the new versioned files and bypass all caching.
+
+## Development
+
+If you want to work on the codebase, run tests, or understand the tooling setup,
+see the full guide here:
+
+➡️ [Development Guide](docs/development.md)
