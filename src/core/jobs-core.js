@@ -14,12 +14,31 @@ var JobsCore = (function () {
    * @property {string} command_location
    * @property {string} grade
    * @property {string} position
-   * @property {string} details  - HTML string with job details
+   * @property {string} details - HTML string with job details
    */
 
   /**
+   * Normalize a raw job object into a fully populated Job structure.
+   * Ensures all expected fields exist and default to empty strings when missing.
+   *
+   * @param {Object} item
+   * @returns {Job}
+   */
+  function normalizeJob(item) {
+    return {
+      id: item.id,
+      notice_num: item.notice_num || "",
+      announcement_date: item.announcement_date || "",
+      closing_date: item.closing_date || "",
+      command_location: item.command_location || "",
+      grade: item.grade || "",
+      position: item.position || "",
+      details: item.details || ""
+    };
+  }
+
+  /**
    * Parse raw JSON text into an array of Job objects.
-   * This function is side-effect free and safe for unit testing.
    *
    * @param {string} rawJsonText
    * @returns {Job[]}
@@ -35,24 +54,11 @@ var JobsCore = (function () {
       throw new Error("parseJson: JSON root must be an array.");
     }
 
-    // Basic normalization; ensures the expected properties exist.
-    return data.map(function (item) {
-      return {
-        id: item.id,
-        notice_num: item.notice_num || "",
-        announcement_date: item.announcement_date || "",
-        closing_date: item.closing_date || "",
-        command_location: item.command_location || "",
-        grade: item.grade || "",
-        position: item.position || "",
-        details: item.details || ""
-      };
-    });
+    return data.map(normalizeJob);
   }
 
   /**
-   * Optional helper: format a date string (YYYY-MM-DD or similar) into a
-   * more readable format. For now this is intentionally simple.
+   * Format a date string. Currently a passthrough with empty-string fallback.
    *
    * @param {string} dateStr
    * @returns {string}
@@ -61,17 +67,14 @@ var JobsCore = (function () {
     if (!dateStr) {
       return "";
     }
-
-    // You can enhance this for your actual date formats.
     return dateStr;
   }
 
   /**
-   * Project a Job into an array suitable for DataTables row data.
-   * This keeps UI mapping in one place.
+   * Convert a Job into a DataTables row array.
    *
    * @param {Job} job
-   * @returns {Array} Row data for DataTables
+   * @returns {Array}
    */
   function jobToRow(job) {
     return [
@@ -86,11 +89,11 @@ var JobsCore = (function () {
   return {
     parseJson: parseJson,
     formatDate: formatDate,
-    jobToRow: jobToRow
+    jobToRow: jobToRow,
+    normalizeJob: normalizeJob // exported for testing
   };
 })();
 
-// Export for Node/Jest, but remain global for browser
 if (typeof module !== "undefined" && module.exports) {
   module.exports = JobsCore;
 }
