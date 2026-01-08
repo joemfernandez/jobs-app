@@ -39,7 +39,7 @@ var JobsCore = (function () {
     return data.map(function (item) {
       return {
         id: item.id,
-        notice_num: item.notice_num || item.noticet_num || "",
+        notice_num: item.notice_num || "",
         announcement_date: item.announcement_date || "",
         closing_date: item.closing_date || "",
         command_location: item.command_location || "",
