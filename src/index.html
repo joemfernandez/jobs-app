@@ -32,11 +32,14 @@
       (function () {
         "use strict";
 
+        var dataService = JobsApp.DataService.create(jQuery, JobsCore);
+
         // Local URL to sample data
         var dataUrl = "./data/jobs.txt";
 
         // Using DataService to load jobs, then initializing UI
-        JobsApp.DataService.getJobs(dataUrl)
+        dataService
+          .getJobs(dataUrl)
           .then(function (jobs) {
             JobsApp.UI.init({
               tableSelector: "#jobs-table",
