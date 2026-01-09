@@ -1,18 +1,10 @@
 /* src/sp/jobs-sp.js */
-/* global */
 
 var JobsApp = typeof JobsApp !== "undefined" ? JobsApp : {};
 
 JobsApp.DataService = (function () {
   "use strict";
 
-  /**
-   * Factory function that creates a DataService instance.
-   *
-   * @param {Object} $ - jQuery-like object with an ajax method
-   * @param {Object} JobsCore - Core module with parseJson
-   * @returns {{ getJobs: function(string): Promise }}
-   */
   function create($, JobsCore) {
     if (!$) {
       throw new Error("JobsApp.DataService.create requires jQuery.");
@@ -21,12 +13,6 @@ JobsApp.DataService = (function () {
       throw new Error("JobsApp.DataService.create requires JobsCore.");
     }
 
-    /**
-     * Load jobs from a URL that returns raw JSON text.
-     *
-     * @param {string} url
-     * @returns {Promise} Resolves with array of Job objects.
-     */
     function getJobs(url) {
       if (!url) {
         throw new Error("getJobs: url is required.");
@@ -46,8 +32,6 @@ JobsApp.DataService = (function () {
     };
   }
 
-  // Guard: If someone tries to use DataService without calling create(),
-  // they get a clear, intentional error instead of a cryptic TypeError.
   function notInitialized() {
     throw new Error(
       "JobsApp.DataService has not been initialized. " +
@@ -57,7 +41,10 @@ JobsApp.DataService = (function () {
 
   return {
     create: create,
-    // Expose a placeholder that throws until create() is called
     getJobs: notInitialized
   };
 })();
+
+/* Node export for Jest. */
+/* eslint-disable-next-line no-undef */
+module.exports = JobsApp.DataService;
