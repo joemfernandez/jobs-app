@@ -9,9 +9,7 @@ coverage/
 .jest/
 
 # VS Code
-.vscode/
-!.vscode/launch.json
-!.vscode/settings.json
+
 
 # OS files
 .DS_Store
