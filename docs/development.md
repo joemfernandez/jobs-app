@@ -246,10 +246,10 @@ jobs.v1.2.3.css
 jobs.v1.2.3.txt
 ```
 
-Run the build:
+Run the build.js script:
 
 ```bash
-npm run build
+node scripts/build.js
 ```
 
 ---
@@ -282,7 +282,7 @@ build/JobBoard/cewp.html
 Run the generator:
 
 ```bash
-npm run update-cewp
+node scripts/update-cewp.js
 ```
 
 #### Updating the CEWP template
@@ -299,9 +299,12 @@ The generator does **not** detect files automatically.
 
 ### 11.3 Full Build + CEWP Workflow
 
+The `package.json` contains an NPM script to run the `build` and `update-cewp` scripts in order.
+
+Run the build script:
+
 ```bash
 npm run build
-npm run update-cewp
 ```
 
 ---
