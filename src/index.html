@@ -33,6 +33,7 @@
         "use strict";
 
         var dataService = JobsApp.DataService.create(jQuery, JobsCore);
+        var ui = JobsApp.UI.create(jQuery, JobsCore);
 
         // Local URL to sample data
         var dataUrl = "./data/jobs.txt";
@@ -41,7 +42,7 @@
         dataService
           .getJobs(dataUrl)
           .then(function (jobs) {
-            JobsApp.UI.init({
+            ui.init({
               tableSelector: "#jobs-table",
               jobs: jobs,
               detailsContainerSelector: "#jobs-details"
