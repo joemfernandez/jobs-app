@@ -1,4 +1,5 @@
 /* src/sp/jobs-sp.js */
+/* global module */
 
 var JobsApp = typeof JobsApp !== "undefined" ? JobsApp : {};
 
@@ -46,5 +47,6 @@ JobsApp.DataService = (function () {
 })();
 
 /* Node export for Jest. */
-/* eslint-disable-next-line no-undef */
-module.exports = JobsApp.DataService;
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = JobsApp.DataService;
+}
