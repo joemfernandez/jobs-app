@@ -1,0 +1,11 @@
+{
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
+  "compilerOptions": {
+    "checkJs": false,
+    "allowJs": true,
+    "types": ["jest"]
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}
